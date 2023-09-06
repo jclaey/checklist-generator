@@ -50,24 +50,24 @@ const renderList = () => {
 
   const storedList = JSON.parse(localStorage.getItem('list'))
 
-  let output
+  let output = ''
 
-  if(storedList.title === '') {
-    output = `
+  if(storedList.title.length === 0) {
+    output += `
       <div>
         <h2>No title yet.</h2>
       </div>
     `
   } else {
-    output = `
+    output += `
       <div>
-        <h2>${storedList.title}</h2>
+        <span style="font-size: 24px;">${storedList.title}</span>
       </div>
     `
   }
 
-  if (!storedList.listItems) {
-    resultsDiv.innerHTML = `
+  if (storedList.listItems.length === 0) {
+    output += `
       <p>
         <small>No items yet.</small>
       </p>
@@ -77,24 +77,25 @@ const renderList = () => {
       output += `
         <div>
           <p class="checklist-item">
-            <i class="fa-regular fa-square fa-2xl"></i>
+            <i style="margin-right: 2rem;" class="fa-regular fa-square fa-2xl"></i>
             ${listItem.content.toUpperCase()}
             <button class="delete-btn btn" data-itemid=${listItem.id}>Delete</button>
           </p>
         </div>
       `
     })
+    
+    document.querySelectorAll('.delete-btn').forEach(node => node.addEventListener('click', deleteListItem));
+  }
 
-    output += `
+  output += `
       <div id="print-btn">
         <button class="btn">Print List</button>
       </div>
     `
-  
-    resultsDiv.innerHTML = output
-    document.querySelectorAll('.delete-btn').forEach(node => node.addEventListener('click', deleteListItem));
-    document.querySelector('#print-btn').addEventListener('click', printList)
-  }
+
+  resultsDiv.innerHTML = output
+  document.querySelector('#print-btn').addEventListener('click', printList)
 }
 
 const deleteListItem = e => {
@@ -106,16 +107,12 @@ const deleteListItem = e => {
 }
 
 const printList = () => {
-  if (!localStorage.getItem('list')) {
-    localStorage.setItem('list', '{}')
-  }
-
   let output = ``
 
   const storedList = JSON.parse(localStorage.getItem('list'))
 
   if (storedList.listItems.length === 0) {
-    output = ``
+    alert('Please create a list to print')
   } else {
     output += `
       <div style="font-family: sans-serif; font-size: 32px;">
@@ -134,11 +131,11 @@ const printList = () => {
         </span>
       `
     })
-  }
 
-  let printWin = window.open('')
-  printWin.document.write(output)
-  printWin.print()
+    let printWin = window.open('')
+    printWin.document.write(output)
+    printWin.print()
+  }
 }
 
 renderList()
