@@ -1,6 +1,6 @@
-const listItemInput = document.querySelector('#list-item');
-const addItemBtn = document.querySelector('#add-item-btn');
-const resultsDiv = document.querySelector('#results');
+const listItemInput = document.querySelector('#list-item')
+const addItemBtn = document.querySelector('#add-item-btn')
+const resultsDiv = document.querySelector('#results')
 const addTitleBtn = document.querySelector('#add-title-btn')
 const listTitleInput = document.querySelector('#title')
 
@@ -19,24 +19,24 @@ const addTitle = e => {
 }
 
 const createListItem = e => {
-  e.preventDefault();
+  e.preventDefault()
 
-  const list = JSON.parse(localStorage.getItem('list'));
+  const list = JSON.parse(localStorage.getItem('list'))
 
-  const hasLength = list.listItems.length > 0 ? true : false;
+  const hasLength = list.listItems.length > 0 ? true : false
 
   const listItem = {
     id: hasLength ? list.listItems[list.listItems.length - 1].id + 1 : 1,
     content: listItemInput.value
-  };
+  }
 
-  list.listItems.push(listItem);
-  localStorage.setItem('list', JSON.stringify(list));
+  list.listItems.push(listItem)
+  localStorage.setItem('list', JSON.stringify(list))
 
-  renderList();
+  renderList()
 
   listItemInput.value = ''
-};
+}
 
 const renderList = () => {
   if (!localStorage.getItem('list')) {
@@ -57,13 +57,13 @@ const renderList = () => {
       <div>
         <h2>No title yet.</h2>
       </div>
-    `;
+    `
   } else {
     output = `
       <div>
         <h2>${storedList.title}</h2>
       </div>
-    `;
+    `
   }
 
   if (!storedList.listItems) {
@@ -71,7 +71,7 @@ const renderList = () => {
       <p>
         <small>No items yet.</small>
       </p>
-    `;
+    `
   } else {
     storedList.listItems.forEach(listItem => {
       output += `
@@ -82,8 +82,8 @@ const renderList = () => {
             <button class="delete-btn btn" data-itemid=${listItem.id}>Delete</button>
           </p>
         </div>
-      `;
-    });
+      `
+    })
 
     output += `
       <div id="print-btn">
@@ -91,31 +91,31 @@ const renderList = () => {
       </div>
     `
   
-    resultsDiv.innerHTML = output;
+    resultsDiv.innerHTML = output
     document.querySelectorAll('.delete-btn').forEach(node => node.addEventListener('click', deleteListItem));
     document.querySelector('#print-btn').addEventListener('click', printList)
   }
-};
+}
 
 const deleteListItem = e => {
-  e.preventDefault();
-  const list = JSON.parse(localStorage.getItem('list'));
+  e.preventDefault()
+  const list = JSON.parse(localStorage.getItem('list'))
   list.listItems = list.listItems.filter(listItem => listItem.id !== Number(e.target.getAttribute('data-itemid')))
-  localStorage.setItem('list', JSON.stringify(list));
-  renderList();
-};
+  localStorage.setItem('list', JSON.stringify(list))
+  renderList()
+}
 
 const printList = () => {
   if (!localStorage.getItem('list')) {
-    localStorage.setItem('list', '{}');
+    localStorage.setItem('list', '{}')
   }
 
-  let output = ``;
+  let output = ``
 
-  const storedList = JSON.parse(localStorage.getItem('list'));
+  const storedList = JSON.parse(localStorage.getItem('list'))
 
   if (storedList.listItems.length === 0) {
-    output = ``;
+    output = ``
   } else {
     output += `
       <div style="font-family: sans-serif; font-size: 32px;">
@@ -132,7 +132,7 @@ const printList = () => {
           </svg>
           <span style="position: relative; bottom: 8px; margin-left: 10px;">${listItem.content.toUpperCase()}</span>
         </span>
-      `;
+      `
     })
   }
 
@@ -141,7 +141,7 @@ const printList = () => {
   printWin.print()
 }
 
-renderList();
+renderList()
 
-addItemBtn.addEventListener('click', createListItem);
+addItemBtn.addEventListener('click', createListItem)
 addTitleBtn.addEventListener('click', addTitle)
