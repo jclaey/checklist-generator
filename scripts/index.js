@@ -122,12 +122,9 @@ const printList = () => {
 
     storedList.listItems.forEach(listItem => {
       output += `
-        <span style="display: block; font-size: 26px; font-family: sans-serif;">
-          <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 448 512">
-            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-            <path d="M384 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H384zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/>
-          </svg>
-          <span style="position: relative; bottom: 8px; margin-left: 10px;">${listItem.content.toUpperCase()}</span>
+        <span style="display: block; font-size: 24px; font-family: sans-serif;">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M384 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H384zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/></svg>
+          <span style="position: relative; bottom: 7px; margin-left: 10px;">${listItem.content.toUpperCase()}</span>
         </span>
       `
     })
@@ -135,6 +132,7 @@ const printList = () => {
     let printWin = window.open('')
     printWin.document.write(output)
     printWin.print()
+    printWin.stop()
   }
 }
 
