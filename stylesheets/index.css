@@ -27,7 +27,6 @@ button {
 }
 
 h1 {
-  margin: 3rem 0 5rem 0;
   font-size: 36px;
 }
 
@@ -42,6 +41,11 @@ a {
 section {
   margin-bottom: 3rem;
   margin-left: 1rem;
+}
+
+/* heading area */
+#heading {
+  margin: 3rem 0 5rem 0;
 }
 
 /* delete button */
