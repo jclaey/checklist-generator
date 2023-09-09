@@ -1,0 +1,13 @@
+@media (max-width: 640px) {
+    main {
+        flex-direction: column;
+    }
+
+    #add-list-section {
+        width: 100vw;
+    }
+
+    #notes-list-section {
+        width: 100vw;
+    }
+}
