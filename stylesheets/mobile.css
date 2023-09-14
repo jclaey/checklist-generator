@@ -10,4 +10,8 @@
     #notes-list-section {
         width: 100vw;
     }
+
+    #heading h2 {
+        font-size: 17px;
+    }
 }
