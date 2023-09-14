@@ -82,13 +82,11 @@ const renderList = () => {
           <p class="checklist-item">
             <i style="margin-right: 2rem;" class="fa-regular fa-square fa-2xl"></i>
             ${listItem.content.toUpperCase()}
-            <button class="delete-btn btn" data-itemid=${listItem.id}>Delete</button>
+            <button type="button" class="delete-btn btn" data-itemid=${listItem.id}>Delete</button>
           </p>
         </div>
       `
     })
-    
-    document.querySelectorAll('.delete-btn').forEach(node => node.addEventListener('click', deleteListItem));
   }
 
   output += `
@@ -98,6 +96,7 @@ const renderList = () => {
     `
 
   resultsDiv.innerHTML = output
+  document.querySelectorAll('.delete-btn').forEach(node => node.addEventListener('click', deleteListItem))
   document.querySelector('#print-btn').addEventListener('click', printList)
 }
 
