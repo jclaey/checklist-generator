@@ -3,9 +3,6 @@ const addItemBtn = document.querySelector('#add-item-btn')
 const resultsDiv = document.querySelector('#results')
 const addTitleBtn = document.querySelector('#add-title-btn')
 const listTitleInput = document.querySelector('#title')
-const instructionsBtn = document.querySelector('#instructions-btn')
-const sidebar = document.querySelector('#instructions')
-const closeBtn = document.querySelector('#close-btn')
 
 const addTitle = e => {
   e.preventDefault()
@@ -138,17 +135,7 @@ const printList = () => {
   }
 }
 
-const openSidebar = () => {
-  document.body.classList.toggle('open-sidebar')
-}
-
-const closeSidebar = () => {
-  document.body.classList.toggle('open-sidebar')
-}
-
 renderList()
 
 addItemBtn.addEventListener('click', createListItem)
 addTitleBtn.addEventListener('click', addTitle)
-instructionsBtn.addEventListener('click', openSidebar)
-closeBtn.addEventListener('click', closeSidebar)
