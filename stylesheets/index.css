@@ -143,6 +143,19 @@ main {
   margin: 3rem 0 5rem 0;
 }
 
+/* footer */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+footer a {
+  color: #2F3640;
+  font-weight: 600;
+}
+
 /* instructions div */
 #instructions {
   background-color: #333;
