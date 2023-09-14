@@ -62,6 +62,7 @@ const renderList = () => {
     output += `
       <div>
         <span style="font-size: 24px;">${storedList.title}</span>
+        <button class="delete-btn" id="delete-title-btn" type="button">Delete</button>
       </div>
     `
   }
@@ -88,11 +89,16 @@ const renderList = () => {
 
   output += `
       <div id="print-btn">
-        <button class="btn">Print List</button>
+        <button type="button" class="btn">Print List</button>
       </div>
     `
 
   resultsDiv.innerHTML = output
+
+  if (document.querySelector('#delete-title-btn') !== null) {
+    document.querySelector('#delete-title-btn').addEventListener('click', deleteTitle)
+  }
+
   document.querySelectorAll('.delete-btn').forEach(node => node.addEventListener('click', deleteListItem))
   document.querySelector('#print-btn').addEventListener('click', printList)
 }
@@ -101,6 +107,14 @@ const deleteListItem = e => {
   e.preventDefault()
   const list = JSON.parse(localStorage.getItem('list'))
   list.listItems = list.listItems.filter(listItem => listItem.id !== Number(e.target.getAttribute('data-itemid')))
+  localStorage.setItem('list', JSON.stringify(list))
+  renderList()
+}
+
+const deleteTitle = e => {
+  e.preventDefault()
+  const list = JSON.parse(localStorage.getItem('list'))
+  list.title = ''
   localStorage.setItem('list', JSON.stringify(list))
   renderList()
 }
