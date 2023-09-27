@@ -22,6 +22,8 @@ body {
 
 main {
   margin: 0 5%;
+  display: flex;
+  width: 100vw;
 }
 
 button {
@@ -45,9 +47,13 @@ section {
   margin-left: 1rem;
 }
 
-/* heading area */
+/* header area */
+/* #header {
+  margin: 0 0 5% 1rem;
+} */
+
 #heading {
-  margin: 3rem 0 5rem 0;
+  margin: 3rem 0 5rem 2rem;
 }
 
 #heading h2 {
@@ -127,11 +133,6 @@ form input[type="text"] {
 }
 
 /* sections */
-main {
-  display: flex;
-  width: 100vw;
-}
-
 #add-list-section {
   width: 50vw;
 }
