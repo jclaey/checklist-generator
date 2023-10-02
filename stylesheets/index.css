@@ -48,9 +48,14 @@ section {
 }
 
 /* header area */
-/* #header {
-  margin: 0 0 5% 1rem;
-} */
+header #brand {
+  display: flex;
+  align-items: center;
+}
+
+header #brand img {
+  margin-right: 1rem;
+}
 
 #heading {
   margin: 3rem 0 5rem 2rem;
