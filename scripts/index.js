@@ -153,18 +153,3 @@ renderList()
 
 addItemBtn.addEventListener('click', createListItem)
 addTitleBtn.addEventListener('click', addTitle)
-
-const questions = [
-  {
-    id: 1,
-    name: 'Anne'
-  },
-  {
-    id: 2,
-    name: 'Anne'
-  }
-]
-
-questions.forEach(question => {
-  console.log(questions.indexOf(question))
-})
