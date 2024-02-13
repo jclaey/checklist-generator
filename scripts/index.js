@@ -61,7 +61,7 @@ const renderList = () => {
   } else {
     output += `
       <div>
-        <span style="font-size: 24px;">${storedList.title}</span>
+        <span style="font-size: 24px;">${sanitize(storedList.title)}</span>
         <button class="delete-btn" id="delete-title-btn" type="button">Delete</button>
       </div>
     `
@@ -79,7 +79,7 @@ const renderList = () => {
         <div>
           <p class="checklist-item">
             <i style="margin-right: 2rem;" class="fa-regular fa-square fa-2xl"></i>
-            ${listItem.content.toUpperCase()}
+            ${sanitize(listItem.content.toUpperCase())}
             <button type="button" class="delete-btn btn" data-itemid=${listItem.id}>Delete</button>
           </p>
         </div>
@@ -129,7 +129,7 @@ const printList = () => {
   } else {
     output += `
       <div style="margin: 2rem 0 5rem 0; font-family: sans-serif; font-size: 32px;">
-        <h2 style="text-align: center;">${storedList.title}</h2>
+        <h2 style="text-align: center;">${sanitize(storedList.title)}</h2>
       </div>
     `
 
@@ -137,7 +137,7 @@ const printList = () => {
       output += `
         <span style="margin-left: 2rem; display: block; font-size: 24px; font-family: sans-serif;">
           <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M384 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H384zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/></svg>
-          <span style="position: relative; bottom: 7px; margin-left: 10px;">${listItem.content.toUpperCase()}</span>
+          <span style="position: relative; bottom: 7px; margin-left: 10px;">${sanitize(listItem.content.toUpperCase())}</span>
         </span>
       `
     })
@@ -147,6 +147,19 @@ const printList = () => {
     printWin.print()
     printWin.stop()
   }
+}
+
+const sanitize = string => {
+  const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      "/": '&#x2F;',
+  };
+  const reg = /[&<>"'/]/ig;
+  return string.replace(reg, (match)=>(map[match]));
 }
 
 renderList()
