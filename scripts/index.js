@@ -60,9 +60,9 @@ const renderList = () => {
     `
   } else {
     output += `
-      <div>
-        <span style="font-size: 24px;">${sanitize(storedList.title)}</span>
-        <button class="delete-btn" id="delete-title-btn" type="button">Delete</button>
+      <div class="mb-4">
+        <span class="is-size-4 mr-2">${sanitize(storedList.title)}</span>
+        <button class="button is-danger" id="delete-title-btn" type="button">Delete</button>
       </div>
     `
   }
@@ -77,11 +77,11 @@ const renderList = () => {
     storedList.listItems.forEach(listItem => {
       output += `
         <div>
-          <p class="checklist-item">
-            <i style="margin-right: 2rem;" class="fa-regular fa-square fa-2xl"></i>
+          <div class="checklist-item mb-4">
+            <i id="checkbox" class="fa-regular fa-square fa-2xl"></i>
             ${sanitize(listItem.content.toUpperCase())}
-            <button type="button" class="delete-btn btn" data-itemid=${listItem.id}>Delete</button>
-          </p>
+            <button type="button" class="delete-btn btn button is-small is-danger ml-3" data-itemid=${Number(listItem.id)}>Delete</button>
+          </div>
         </div>
       `
     })
@@ -89,7 +89,7 @@ const renderList = () => {
 
   output += `
       <div id="print-btn">
-        <button type="button" class="btn">Print List</button>
+        <button type="button" class="btn button">Print List</button>
       </div>
     `
 

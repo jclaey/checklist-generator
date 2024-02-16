@@ -1,166 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
-
-/* GENERAL STYLING */
-
-:root {
-  --primary-color: #333;
-  --secondary-color: #ff5c33;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Open Sans", sans-serif;
-  overflow-x: hidden;
   transition: transform 0.3s ease;
-  background-color: #f4f4f4;
 }
 
 main {
   margin: 0 5%;
-  display: flex;
-  width: 100vw;
 }
 
-button {
-  cursor: pointer;
+header {
+  margin: 0 5%;
 }
 
-h1 {
-  font-size: 36px;
+#instructions-btn-area {
+  margin: 0 5%;
 }
 
-ul {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-section {
-  margin-bottom: 3rem;
-  margin-left: 1rem;
-}
-
-/* header area */
-header #brand {
+#brand {
   display: flex;
   align-items: center;
 }
 
-header #brand img {
-  margin-right: 1rem;
-}
-
-#heading {
-  margin: 3rem 0 5rem 2rem;
-}
-
-#heading h2 {
-  font-size: 18px;
-  font-weight: 400;
-}
-
-/* delete button */
-.delete-btn {
-  font-size: 14px;
-  padding: 8px;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  transition: 0.3s;
-  margin-left: 3rem;
-  background-color: #b30000;
-}
-
-/* forms */
-.form-group {
-  margin: 0.5rem 0;
-}
-
-form button {
-  margin-top: 1rem;
-  font-size: 16px;
-  padding: 12px;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  transition: 0.3s;
-}
-
-form button:hover {
-  cursor: pointer;
-}
-
-form input[type="text"] {
-  font-size: 14px;
-  height: 28px;
-  border-radius: 3px;
-}
-
-/* checklist items */
-.checklist-item {
-  font-size: 18px;
-}
-
-/* print list items */
-.print-list-item {
-  display: block;
-}
-
-/* buttons */
-.add-btn {
-  background-color: var(--primary-color);
-  color: #fff;
-}
-
-.add-btn:hover {
-  background-color: #4d4d4d;
-  
-}
-
-#print-btn button {
-  background-color: #009933;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  font-size: 16px;
-  margin-top: 2rem;
-}
-
-.form-group button {
-  margin-bottom: 2rem;
-}
-
-/* sections */
-#add-list-section {
-  width: 50vw;
-}
-
-#notes-list-section {
-  width: 50vw;
-}
-
-#notes-list-section h2 {
-  margin: 3rem 0 5rem 0;
-}
-
-/* footer */
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-}
-
-footer a {
-  color: #2F3640;
-  font-weight: 600;
+#checkbox {
+  margin-right: 2rem;
 }
 
 /* instructions div */
@@ -171,7 +31,7 @@ footer a {
   top: 0;
   left: 0;
   width: 300px;
-  height: 420px;
+  height: 550px;
   z-index: 1;
   transform: translateX(-100%)
 }
@@ -197,14 +57,16 @@ footer a {
 }
 
 #instructions-btn-area {
-  margin: 1rem 2rem 0 2rem;
+  margin-top: 1rem;
   color: #333;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #instructions-btn-area a {
   color: #333;
+  transition: 0.3s;
 }
 
 #instructions-btn-area #instructions-btn {
@@ -216,6 +78,7 @@ footer a {
 
 #instructions-btn-area #instructions-btn:hover {
   color: #666;
+  cursor: pointer;
 }
 
 /* footer */
