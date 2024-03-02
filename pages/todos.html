@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Jason Claeys">
+    <meta name="description" content="Simple todo lists">
+    <meta name="keywords" content="to do list, todo list">
+    <link rel="stylesheet" href="../stylesheets/bulma/css/bulma.min.css">
+    <link rel="stylesheet" href="../stylesheets/index.css">
+    <title>Checklist Generator | ToDo List</title>
+</head>
+<body>
+    <header class="mb-6">
+        <nav id="instructions-btn-area">
+            <div id="nav-left">
+                <div>
+                    <button id="instructions-btn">Instructions</button>
+                </div>
+            </div>
+            <div id="nav-right">
+                <a href="https://simplechecklistgenerator.com" target="_blank" class="button is-link is-light">Checklist Generator</a>
+                <a href="https://simpletestgenerator.com" target="_blank" class="button is-link is-light">Multiple Choice Test Generator</a>
+                <a href="https://simpletestgenerator.com/pages/spelling_test" target="_blank" class="button is-link is-light">Spelling Test Generator</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="mb-6">
+            <h1 class="title is-size-1">Simple Todos</h1>
+        </div>
+        <div class="columns">
+            <section id="create-section" class="column">
+                <form>
+                    <div class="field mb-6">
+                        <label for="list-title">
+                            <strong>Add Title</strong>
+                        </label>
+                        <div class="control">
+                            <input type="text" id="list-title" class="input mb-3">
+                        </div>
+                        <div>
+                            <button id="add-title-btn" class="add-btn button">Add Title</button>
+                        </div>
+                    </div>
+                </form>
+                <form>
+                    <div class="field mb-6">
+                        <label for="todo-item">
+                            <strong>Enter Todo Item</strong>
+                        </label>
+                        <div class="control">
+                            <input type="text" id="todo-item" class="input mb-3">
+                        </div>
+                        <div>
+                            <button id="add-todo-btn" class="add-btn button">Add Todo Item</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <section class="column" id="list-section">
+                <h2 class="is-size-3 ml-6">Your List</h2>
+            </section>
+        </div>
+    </main>
+    <footer></footer>
+
+    <script src="../scripts/todos.js"></script>
+</body>
+</html>
