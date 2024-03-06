@@ -40,7 +40,7 @@
                             <input type="text" id="list-title" class="input mb-3">
                         </div>
                         <div>
-                            <button id="add-title-btn" class="add-btn button">Add Title</button>
+                            <button type="button" id="add-title-btn" class="add-btn button">Add Title</button>
                         </div>
                     </div>
                 </form>
@@ -53,17 +53,29 @@
                             <input type="text" id="todo-item" class="input mb-3">
                         </div>
                         <div>
-                            <button id="add-todo-btn" class="add-btn button">Add Todo Item</button>
+                            <button type="button" id="add-todo-btn" class="add-btn button">Add Todo Item</button>
                         </div>
                     </div>
                 </form>
             </section>
-            <section class="column" id="list-section">
-                <h2 class="is-size-3 ml-6">Your List</h2>
-            </section>
+            <section class="column ml-6" id="list-section"></section>
         </div>
     </main>
-    <footer></footer>
+    <footer>
+        <div id="footer-legal">
+            <div>
+                <a href="./legal/terms.html">Terms and Conditions</a>
+            </div>
+            <div>
+                <a href="./legal/privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+        <div>
+            <p>
+                Built by <a href="https://claeysdev.com" target="_blank">ClaeysDev</a>
+            </p>
+        </div>
+      </footer>
 
     <script src="../scripts/todos.js"></script>
 </body>
