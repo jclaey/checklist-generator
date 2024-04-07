@@ -69,7 +69,7 @@ const renderList = () => {
 
   if (storedList.listItems.length === 0) {
     output += `
-      <p>
+      <p class="mb-2">
         <small>No items yet.</small>
       </p>
     `
@@ -88,9 +88,10 @@ const renderList = () => {
   }
 
   output += `
-      <div id="print-btn">
-        <button type="button" class="btn button">Print List</button>
+      <div>
+        <button id="print-btn" type="button" class="btn button mb-1">Print List</button>
       </div>
+      <div id="no-items-error">Please create a list to print.</div>
     `
 
   resultsDiv.innerHTML = output
@@ -125,7 +126,11 @@ const printList = () => {
   const storedList = JSON.parse(localStorage.getItem('list'))
 
   if (storedList.listItems.length === 0) {
-    alert('Please create a list to print')
+    document.querySelector('#no-items-error').style.display = 'block'
+
+    setTimeout(() => {
+      document.querySelector('#no-items-error').style.display = 'none'  
+    }, 3000)
   } else {
     output += `
       <div style="margin: 2rem 0 5rem 0; font-family: sans-serif; font-size: 32px;">
@@ -135,7 +140,7 @@ const printList = () => {
 
     storedList.listItems.forEach(listItem => {
       output += `
-        <span style="margin-left: 2rem; display: block; font-size: 24px; font-family: sans-serif;">
+        <span style="margin-left: 2rem; display: block; font-size: 24px; font-family: sans-serif; min-height: 500px">
           <svg xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M384 80c8.8 0 16 7.2 16 16V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16H384zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z"/></svg>
           <span style="position: relative; bottom: 7px; margin-left: 10px;">${sanitize(listItem.content.toUpperCase())}</span>
         </span>

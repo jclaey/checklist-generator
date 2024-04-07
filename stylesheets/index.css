@@ -23,6 +23,12 @@ header {
   margin-right: 2rem;
 }
 
+#no-items-error {
+  margin-bottom: 0.5rem;
+  color: red;
+  display: none;
+}
+
 /* instructions div */
 #instructions {
   background-color: #333;
