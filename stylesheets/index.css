@@ -89,27 +89,27 @@ header {
 
 /* footer */
 footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  margin: 0 20% 0 20%;
+  height: 200px;
+  background-color: #f2f2f2;
+  font-size: 18px;
 }
 
 footer a {
-  color: #2F3640;
-  font-weight: 600;
-  transition: 0.3s;
+  color: #333;
 }
 
-footer a:hover {
-  color: #666;
+footer div {
+  margin: 2.5rem 5rem 0 5rem;
+}
+
+footer #footer-built-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer #footer-legal {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
 }
